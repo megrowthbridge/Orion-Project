@@ -7,21 +7,24 @@
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet">
   <style>
     :root {
-      --cream: #FAF8F4;
-      --cream-warm: #F5F0E8;
-      --sage: #6B8E6B;
-      --sage-light: #8FB08F;
-      --sage-dark: #4A6B4A;
-      --gold: #C9A84C;
-      --gold-soft: #D4BC7A;
-      --gold-pale: #F0E6CC;
-      --charcoal: #2C2C2C;
-      --charcoal-soft: #4A4A4A;
-      --warm-gray: #8A8278;
-      --border-light: rgba(107,142,107,0.12);
-      --border-gold: rgba(201,168,76,0.2);
-      --shadow-soft: 0 8px 32px rgba(44,44,44,0.06);
-      --shadow-hover: 0 20px 60px rgba(44,44,44,0.1);
+      --cream: #FBF7F0;
+      --cream-warm: #F6EEE1;
+      --sage: #5F8A6A;
+      --sage-light: #88A98F;
+      --sage-dark: #3E5C46;
+      --gold: #D4A017;
+      --gold-bright: #E8B54A;
+      --gold-soft: #D9B86C;
+      --gold-pale: #F5E8C8;
+      --amber: #E0852E;
+      --amber-soft: #F0B17B;
+      --charcoal: #26231C;
+      --charcoal-soft: #4A453C;
+      --warm-gray: #8A8174;
+      --border-light: rgba(95,138,106,0.14);
+      --border-gold: rgba(212,160,23,0.28);
+      --shadow-soft: 0 8px 32px rgba(38,35,28,0.07);
+      --shadow-hover: 0 24px 70px rgba(38,35,28,0.14);
     }
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -42,7 +45,7 @@
       align-items: center;
       justify-content: center;
       position: relative;
-      background: linear-gradient(160deg, var(--cream) 0%, var(--cream-warm) 50%, #EDE8DE 100%);
+      background: linear-gradient(160deg, var(--cream) 0%, var(--cream-warm) 50%, #F1E4CC 100%);
       overflow: hidden;
     }
 
@@ -51,7 +54,7 @@
       position: absolute;
       top: -10%; right: -15%;
       width: 500px; height: 500px;
-      background: radial-gradient(circle, rgba(201,168,76,0.06) 0%, transparent 70%);
+      background: radial-gradient(circle, rgba(232,181,74,0.12) 0%, transparent 70%);
       animation: float-orb 8s ease-in-out infinite;
     }
 
@@ -60,7 +63,7 @@
       position: absolute;
       bottom: -5%; left: -10%;
       width: 400px; height: 400px;
-      background: radial-gradient(circle, rgba(107,142,107,0.05) 0%, transparent 70%);
+      background: radial-gradient(circle, rgba(95,138,106,0.08) 0%, transparent 70%);
       animation: float-orb 10s ease-in-out infinite reverse;
     }
 
@@ -73,28 +76,51 @@
     /* Northern Star */
     .star-container {
       position: relative;
-      width: 220px; height: 220px;
+      width: 250px; height: 250px;
       margin-bottom: 3rem;
       display: flex;
       align-items: center;
       justify-content: center;
     }
 
+    .star-halo {
+      position: absolute;
+      width: 170px; height: 170px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(232,181,74,0.35) 0%, rgba(224,133,46,0.12) 40%, transparent 70%);
+      animation: halo-pulse 3.6s ease-in-out infinite;
+      filter: blur(2px);
+    }
+
+    @keyframes halo-pulse {
+      0%, 100% { transform: scale(0.92); opacity: 0.75; }
+      50% { transform: scale(1.08); opacity: 1; }
+    }
+
     .star-glow {
       position: absolute;
       width: 100%; height: 100%;
       border-radius: 50%;
-      border: 1px solid rgba(201,168,76,0.15);
+      border: 1.5px solid rgba(232,181,74,0.35);
       animation: glow-pulse 4s ease-in-out infinite;
     }
 
     .star-glow::before {
       content: '';
       position: absolute;
-      inset: 20px;
+      inset: 24px;
       border-radius: 50%;
-      border: 1px solid rgba(201,168,76,0.08);
-      animation: glow-pulse 4s ease-in-out infinite 0.5s;
+      border: 1px solid rgba(212,160,23,0.2);
+      animation: glow-pulse 4s ease-in-out infinite 0.6s;
+    }
+
+    .star-glow::after {
+      content: '';
+      position: absolute;
+      inset: 48px;
+      border-radius: 50%;
+      border: 1px solid rgba(224,133,46,0.16);
+      animation: glow-pulse 4s ease-in-out infinite 1.2s;
     }
 
     @keyframes glow-pulse {
@@ -104,10 +130,27 @@
 
     .star-orbit {
       position: absolute;
-      width: 180px; height: 180px;
+      width: 200px; height: 200px;
       border-radius: 50%;
-      border: 1px dashed rgba(107,142,107,0.2);
-      animation: orbit-spin 30s linear infinite;
+      border: 1.5px dashed rgba(95,138,106,0.35);
+      animation: orbit-spin 26s linear infinite;
+    }
+
+    .star-orbit::after {
+      content: '';
+      position: absolute;
+      top: -4px; left: 50%;
+      width: 8px; height: 8px;
+      margin-left: -4px;
+      border-radius: 50%;
+      background: radial-gradient(circle, #E8B54A, #D4A017);
+      box-shadow: 0 0 14px rgba(232,181,74,0.9);
+      animation: orbit-dot-pulse 2.4s ease-in-out infinite;
+    }
+
+    @keyframes orbit-dot-pulse {
+      0%, 100% { box-shadow: 0 0 10px rgba(232,181,74,0.6); }
+      50% { box-shadow: 0 0 22px rgba(232,181,74,1); }
     }
 
     @keyframes orbit-spin {
@@ -116,22 +159,23 @@
     }
 
     .northern-star {
-      width: 100px; height: 100px;
+      width: 116px; height: 116px;
       position: relative;
       z-index: 2;
       animation: star-breathe 3s ease-in-out infinite;
-      filter: drop-shadow(0 0 30px rgba(201,168,76,0.3)) drop-shadow(0 0 60px rgba(201,168,76,0.1));
+      filter: drop-shadow(0 0 26px rgba(232,181,74,0.55)) drop-shadow(0 0 70px rgba(232,181,74,0.28));
     }
 
     @keyframes star-breathe {
       0%, 100% { transform: scale(1) rotate(0deg); }
-      50% { transform: scale(1.06) rotate(2deg); }
+      50% { transform: scale(1.07) rotate(3deg); }
     }
 
     .particle {
       position: absolute;
       border-radius: 50%;
-      background: var(--gold);
+      background: radial-gradient(circle, #E8B54A, #D4A017);
+      box-shadow: 0 0 8px rgba(232,181,74,0.8);
       opacity: 0;
       animation: particle-float 3s ease-in-out infinite;
     }
@@ -162,6 +206,17 @@
       margin-bottom: 0.3rem;
       position: relative;
       z-index: 1;
+      background: linear-gradient(100deg, var(--charcoal) 40%, var(--gold) 50%, var(--charcoal) 60%);
+      background-size: 250% 100%;
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: title-shimmer 7s ease-in-out infinite;
+    }
+
+    @keyframes title-shimmer {
+      0% { background-position: 120% 0; }
+      40%, 100% { background-position: -60% 0; }
     }
 
     .brand-subtitle {
@@ -271,7 +326,7 @@
 
     .section-cream { background: var(--cream); }
     .section-warm { background: var(--cream-warm); }
-    .section-sage { background: linear-gradient(135deg, var(--sage) 0%, var(--sage-dark) 100%); color: #fff; }
+    .section-sage { background: linear-gradient(135deg, #2F4A38 0%, var(--sage) 45%, var(--sage-dark) 100%); color: #fff; }
 
     .container {
       max-width: 1140px;
@@ -292,14 +347,15 @@
       font-weight: 600;
       letter-spacing: 0.3em;
       text-transform: uppercase;
-      color: var(--sage);
+      color: var(--gold);
       margin-bottom: 1.2rem;
     }
 
     .eyebrow .dot {
       width: 6px; height: 6px;
       border-radius: 50%;
-      background: var(--gold);
+      background: var(--amber);
+      box-shadow: 0 0 8px rgba(224,133,46,0.6);
     }
 
     .section-sage .eyebrow { color: var(--gold-pale); }
@@ -326,7 +382,9 @@
 
     /* ===== PLAYBOOK NAV ===== */
     .playbook-bar {
-      background: #fff;
+      background: rgba(255,255,255,0.82);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
       border: 1px solid var(--border-light);
       border-radius: 20px;
       padding: 32px 40px;
@@ -342,9 +400,9 @@
       position: absolute;
       top: 0; left: 0; right: 0;
       height: 3px;
-      background: linear-gradient(90deg, var(--sage), var(--gold), var(--sage));
-      background-size: 200% 100%;
-      animation: gradient-shift 6s ease infinite;
+      background: linear-gradient(90deg, var(--sage), var(--gold), var(--amber), var(--gold), var(--sage));
+      background-size: 300% 100%;
+      animation: gradient-shift 5s ease infinite;
     }
 
     @keyframes gradient-shift {
@@ -386,20 +444,50 @@
       border: 1.5px solid transparent;
       background: transparent;
       font-family: 'DM Sans', sans-serif;
+      position: relative;
+      overflow: hidden;
     }
 
     .pb-link:hover {
       color: var(--sage-dark);
       border-color: var(--border-light);
-      background: rgba(107,142,107,0.04);
+      background: rgba(95,138,106,0.06);
       transform: translateY(-1px);
     }
 
     .pb-link.active {
       color: #fff;
-      background: var(--sage);
-      border-color: var(--sage);
-      box-shadow: 0 4px 16px rgba(107,142,107,0.25);
+      background: linear-gradient(135deg, var(--gold) 0%, var(--amber) 100%);
+      border-color: transparent;
+      box-shadow: 0 6px 20px rgba(212,160,23,0.4);
+      transform: translateY(-1px);
+    }
+
+    .pb-link.active::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.35), transparent);
+      transform: translateX(-100%);
+      animation: tab-shine 3.5s ease-in-out infinite 1s;
+    }
+
+    @keyframes tab-shine {
+      0% { transform: translateX(-100%); }
+      45%, 100% { transform: translateX(100%); }
+    }
+
+    .pb-ripple {
+      position: absolute;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.5);
+      transform: scale(0);
+      animation: pb-ripple 0.55s ease-out forwards;
+      pointer-events: none;
+    }
+
+    @keyframes pb-ripple {
+      to { transform: scale(4); opacity: 0; }
     }
 
     .pb-sep {
@@ -494,7 +582,7 @@
     }
 
     .step-card {
-      background: #fff;
+      background: linear-gradient(160deg, #fff 0%, #FDFBF5 100%);
       border: 1px solid var(--border-light);
       border-radius: 20px;
       padding: 40px 32px;
@@ -510,7 +598,7 @@
       position: absolute;
       top: 0; left: 0;
       width: 100%; height: 4px;
-      background: linear-gradient(90deg, var(--sage), var(--gold));
+      background: linear-gradient(90deg, var(--sage), var(--gold), var(--amber));
       transform: scaleX(0);
       transform-origin: left;
       transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
@@ -518,6 +606,20 @@
 
     .step-card:hover::before {
       transform: scaleX(1);
+    }
+
+    .step-card::after {
+      content: '';
+      position: absolute;
+      top: 0; right: 0;
+      width: 130px; height: 130px;
+      background: radial-gradient(circle, rgba(232,181,74,0.10) 0%, transparent 70%);
+      transition: opacity 0.4s ease;
+      opacity: 0;
+    }
+
+    .step-card:hover::after {
+      opacity: 1;
     }
 
     .step-card:hover {
@@ -530,14 +632,20 @@
       font-family: 'Cormorant Garamond', serif;
       font-size: 3.5rem;
       font-weight: 700;
-      color: var(--gold-pale);
+      color: transparent;
+      background: linear-gradient(135deg, var(--gold-soft) 0%, var(--gold-pale) 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
       line-height: 1;
       margin-bottom: 16px;
-      transition: color 0.4s;
+      transition: all 0.4s;
     }
 
     .step-card:hover .step-number {
-      color: var(--gold-soft);
+      color: transparent;
+      background: linear-gradient(135deg, var(--gold) 0%, var(--amber) 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
     }
 
     .step-title {
@@ -560,7 +668,7 @@
       margin-top: 20px;
       font-size: 0.8rem;
       font-weight: 600;
-      color: var(--sage);
+      color: var(--gold);
       text-transform: uppercase;
       letter-spacing: 0.1em;
       opacity: 0;
@@ -595,9 +703,15 @@
       content: '';
       position: absolute;
       top: 0; right: 0;
-      width: 120px; height: 120px;
-      background: radial-gradient(circle, rgba(201,168,76,0.04) 0%, transparent 70%);
+      width: 150px; height: 150px;
+      background: radial-gradient(circle, rgba(232,181,74,0.12) 0%, transparent 70%);
       pointer-events: none;
+      transition: opacity 0.4s ease;
+      opacity: 0;
+    }
+
+    .service-card:hover::after {
+      opacity: 1;
     }
 
     .service-card:hover {
@@ -609,18 +723,19 @@
     .service-icon {
       width: 52px; height: 52px;
       border-radius: 14px;
-      background: linear-gradient(135deg, var(--gold-pale) 0%, rgba(107,142,107,0.08) 100%);
+      background: linear-gradient(135deg, var(--gold-pale) 0%, var(--sage-light) 100%);
       border: 1px solid var(--border-gold);
       display: flex;
       align-items: center;
       justify-content: center;
       margin-bottom: 24px;
       font-size: 1.3rem;
-      transition: transform 0.3s ease;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
     .service-card:hover .service-icon {
       transform: scale(1.08) rotate(-3deg);
+      box-shadow: 0 6px 18px rgba(212,160,23,0.3);
     }
 
     .service-title {
@@ -680,8 +795,8 @@
       align-items: center;
       gap: 12px;
       padding: 18px 44px;
-      background: #fff;
-      color: var(--sage-dark);
+      background: linear-gradient(135deg, var(--gold) 0%, var(--amber) 100%);
+      color: #fff;
       font-size: 0.85rem;
       font-weight: 700;
       letter-spacing: 0.12em;
@@ -694,7 +809,7 @@
       position: relative;
       z-index: 1;
       overflow: hidden;
-      box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+      box-shadow: 0 10px 32px rgba(212,160,23,0.4);
     }
 
     .cta-button::before {
@@ -702,23 +817,35 @@
       position: absolute;
       top: 0; left: -100%;
       width: 100%; height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(201,168,76,0.15), transparent);
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.35), transparent);
       transition: left 0.6s ease;
+      z-index: 1;
     }
 
     .cta-button:hover::before { left: 100%; }
 
     .cta-button:hover {
       transform: translateY(-3px);
-      box-shadow: 0 16px 40px rgba(0,0,0,0.2);
-      color: var(--charcoal);
+      box-shadow: 0 18px 44px rgba(212,160,23,0.5);
+      filter: brightness(1.05);
     }
+
+    .cta-button svg { z-index: 2; }
 
     /* ===== FOOTER ===== */
     .footer {
       padding: 60px 24px 40px;
-      background: var(--charcoal);
+      background: linear-gradient(180deg, var(--charcoal) 0%, #1A1813 100%);
       text-align: center;
+      position: relative;
+    }
+
+    .footer::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
     }
 
     .footer-brand {
@@ -764,12 +891,14 @@
     .reveal {
       opacity: 0;
       transform: translateY(40px);
+      filter: blur(4px);
       transition: all 0.9s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
     .reveal.visible {
       opacity: 1;
       transform: translateY(0);
+      filter: blur(0);
     }
 
     .reveal-delay-1 { transition-delay: 0.1s; }
@@ -785,8 +914,17 @@
       .service-card { padding: 28px 24px; }
       .pb-links { gap: 4px; }
       .pb-link { padding: 8px 14px; font-size: 0.78rem; }
-      .star-container { width: 180px; height: 180px; }
-      .northern-star { width: 80px; height: 80px; }
+      .star-container { width: 200px; height: 200px; }
+      .northern-star { width: 92px; height: 92px; }
+      .star-halo { width: 140px; height: 140px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
     }
   </style>
 </head>
@@ -796,6 +934,7 @@
   <section class="hero">
     <div class="star-container">
       <div class="star-glow"></div>
+      <div class="star-halo"></div>
       <div class="star-orbit"></div>
       <div class="particle"></div>
       <div class="particle"></div>
@@ -804,14 +943,30 @@
       <div class="particle"></div>
       <div class="particle"></div>
       <svg class="northern-star" viewBox="0 0 100 100" fill="none">
-        <path d="M50 2 L53 38 L62 42 L55 45 L58 55 L50 50 L42 55 L45 45 L38 42 L47 38 Z" fill="#C9A84C"/>
-        <path d="M50 15 L52 35 L58 38 L52 41 L54 48 L50 45 L46 48 L48 41 L42 38 L48 35 Z" fill="#D4BC7A" opacity="0.7"/>
-        <circle cx="50" cy="50" r="5" fill="#FAF8F4"/>
-        <circle cx="50" cy="50" r="2.5" fill="#C9A84C"/>
-        <path d="M50 8 L50 92" stroke="#C9A84C" stroke-width="0.5" opacity="0.3"/>
-        <path d="M8 50 L92 50" stroke="#C9A84C" stroke-width="0.5" opacity="0.3"/>
-        <path d="M20 20 L80 80" stroke="#C9A84C" stroke-width="0.3" opacity="0.2"/>
-        <path d="M80 20 L20 80" stroke="#C9A84C" stroke-width="0.3" opacity="0.2"/>
+        <defs>
+          <linearGradient id="starGold" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#F6CD7C"/>
+            <stop offset="50%" stop-color="#E8B54A"/>
+            <stop offset="100%" stop-color="#D4A017"/>
+          </linearGradient>
+          <radialGradient id="starCore" cx="40%" cy="35%" r="70%">
+            <stop offset="0%" stop-color="#FFF6DF"/>
+            <stop offset="55%" stop-color="#F6CD7C"/>
+            <stop offset="100%" stop-color="#E8B54A"/>
+          </radialGradient>
+          <filter id="starSoft" x="-40%" y="-40%" width="180%" height="180%">
+            <feGaussianBlur stdDeviation="1.2"/>
+          </filter>
+        </defs>
+        <path d="M50 2 L53 38 L62 42 L55 45 L58 55 L50 50 L42 55 L45 45 L38 42 L47 38 Z" fill="url(#starGold)" stroke="#B8860B" stroke-width="1.4" stroke-linejoin="round"/>
+        <path d="M50 15 L52 35 L58 38 L52 41 L54 48 L50 45 L46 48 L48 41 L42 38 L48 35 Z" fill="url(#starCore)" opacity="0.95"/>
+        <circle cx="50" cy="50" r="6" fill="#FFFBEF"/>
+        <circle cx="50" cy="50" r="3" fill="#E8B54A"/>
+        <path d="M50 6 L50 94" stroke="url(#starGold)" stroke-width="1" opacity="0.5" filter="url(#starSoft)"/>
+        <path d="M6 50 L94 50" stroke="url(#starGold)" stroke-width="1" opacity="0.5" filter="url(#starSoft)"/>
+        <path d="M18 18 L82 82" stroke="url(#starGold)" stroke-width="0.8" opacity="0.35" filter="url(#starSoft)"/>
+        <path d="M82 18 L18 82" stroke="url(#starGold)" stroke-width="0.8" opacity="0.35" filter="url(#starSoft)"/>
+        <circle cx="50" cy="50" r="14" fill="url(#starGold)" opacity="0.14" filter="url(#starSoft)"/>
       </svg>
     </div>
 
@@ -1022,7 +1177,24 @@
     function setActive(el) {
       document.querySelectorAll('.pb-link').forEach(l => l.classList.remove('active'));
       el.classList.add('active');
+
+      const rect = el.getBoundingClientRect();
+      const ripple = document.createElement('span');
+      const size = Math.max(rect.width, rect.height);
+      ripple.className = 'pb-ripple';
+      ripple.style.width = ripple.style.height = size + 'px';
+      ripple.style.left = (event.clientX - rect.left - size / 2) + 'px';
+      ripple.style.top = (event.clientY - rect.top - size / 2) + 'px';
+      el.appendChild(ripple);
+      setTimeout(() => ripple.remove(), 600);
     }
+
+    document.querySelectorAll('.pb-link').forEach(btn => {
+      btn.addEventListener('click', function(e) {
+        e.preventDefault();
+        setActive(this);
+      });
+    });
   </script>
 
 </body>
