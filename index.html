@@ -12,19 +12,19 @@
       --sage: #5F8A6A;
       --sage-light: #88A98F;
       --sage-dark: #3E5C46;
-      --gold: #D4A017;
-      --gold-bright: #E8B54A;
-      --gold-soft: #D9B86C;
-      --gold-pale: #F5E8C8;
-      --amber: #E0852E;
-      --amber-soft: #F0B17B;
-      --charcoal: #26231C;
-      --charcoal-soft: #4A453C;
-      --warm-gray: #8A8174;
-      --border-light: rgba(95,138,106,0.14);
-      --border-gold: rgba(212,160,23,0.28);
-      --shadow-soft: 0 8px 32px rgba(38,35,28,0.07);
-      --shadow-hover: 0 24px 70px rgba(38,35,28,0.14);
+      --gold: #B8860B;
+      --gold-bright: #C79A1B;
+      --gold-soft: #C8A23C;
+      --gold-pale: #E9D7A8;
+      --amber: #C05E12;
+      --amber-soft: #D8894B;
+      --charcoal: #201C14;
+      --charcoal-soft: #45403A;
+      --warm-gray: #6E6455;
+      --border-light: rgba(95,138,106,0.16);
+      --border-gold: rgba(184,134,11,0.34);
+      --shadow-soft: 0 8px 32px rgba(32,28,20,0.09);
+      --shadow-hover: 0 24px 70px rgba(32,28,20,0.16);
     }
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -87,7 +87,7 @@
       position: absolute;
       width: 170px; height: 170px;
       border-radius: 50%;
-      background: radial-gradient(circle, rgba(232,181,74,0.35) 0%, rgba(224,133,46,0.12) 40%, transparent 70%);
+      background: radial-gradient(circle, rgba(199,154,27,0.32) 0%, rgba(192,94,18,0.14) 45%, transparent 72%);
       animation: halo-pulse 3.6s ease-in-out infinite;
       filter: blur(2px);
     }
@@ -101,7 +101,7 @@
       position: absolute;
       width: 100%; height: 100%;
       border-radius: 50%;
-      border: 1.5px solid rgba(232,181,74,0.35);
+      border: 1.5px solid rgba(184,134,11,0.5);
       animation: glow-pulse 4s ease-in-out infinite;
     }
 
@@ -110,7 +110,7 @@
       position: absolute;
       inset: 24px;
       border-radius: 50%;
-      border: 1px solid rgba(212,160,23,0.2);
+      border: 1px solid rgba(184,134,11,0.3);
       animation: glow-pulse 4s ease-in-out infinite 0.6s;
     }
 
@@ -119,7 +119,7 @@
       position: absolute;
       inset: 48px;
       border-radius: 50%;
-      border: 1px solid rgba(224,133,46,0.16);
+      border: 1px solid rgba(192,94,18,0.24);
       animation: glow-pulse 4s ease-in-out infinite 1.2s;
     }
 
@@ -132,7 +132,7 @@
       position: absolute;
       width: 200px; height: 200px;
       border-radius: 50%;
-      border: 1.5px dashed rgba(95,138,106,0.35);
+      border: 1.5px dashed rgba(184,134,11,0.45);
       animation: orbit-spin 26s linear infinite;
     }
 
@@ -140,11 +140,11 @@
       content: '';
       position: absolute;
       top: -4px; left: 50%;
-      width: 8px; height: 8px;
+      width: 9px; height: 9px;
       margin-left: -4px;
       border-radius: 50%;
-      background: radial-gradient(circle, #E8B54A, #D4A017);
-      box-shadow: 0 0 14px rgba(232,181,74,0.9);
+      background: radial-gradient(circle, #E8B54A, #C0840F);
+      box-shadow: 0 0 16px rgba(199,154,27,1);
       animation: orbit-dot-pulse 2.4s ease-in-out infinite;
     }
 
@@ -163,7 +163,7 @@
       position: relative;
       z-index: 2;
       animation: star-breathe 3s ease-in-out infinite;
-      filter: drop-shadow(0 0 26px rgba(232,181,74,0.55)) drop-shadow(0 0 70px rgba(232,181,74,0.28));
+      filter: drop-shadow(0 0 18px rgba(184,134,11,0.5)) drop-shadow(0 0 50px rgba(184,134,11,0.3));
     }
 
     @keyframes star-breathe {
@@ -174,8 +174,8 @@
     .particle {
       position: absolute;
       border-radius: 50%;
-      background: radial-gradient(circle, #E8B54A, #D4A017);
-      box-shadow: 0 0 8px rgba(232,181,74,0.8);
+      background: radial-gradient(circle, #E8B54A, #C0840F);
+      box-shadow: 0 0 10px rgba(199,154,27,0.9);
       opacity: 0;
       animation: particle-float 3s ease-in-out infinite;
     }
@@ -206,12 +206,13 @@
       margin-bottom: 0.3rem;
       position: relative;
       z-index: 1;
-      background: linear-gradient(100deg, var(--charcoal) 40%, var(--gold) 50%, var(--charcoal) 60%);
+      background: linear-gradient(100deg, var(--charcoal) 38%, var(--gold-bright) 50%, var(--charcoal) 62%);
       background-size: 250% 100%;
       -webkit-background-clip: text;
       background-clip: text;
       -webkit-text-fill-color: transparent;
       animation: title-shimmer 7s ease-in-out infinite;
+      text-shadow: none;
     }
 
     @keyframes title-shimmer {
@@ -222,8 +223,8 @@
     .brand-subtitle {
       font-family: 'DM Sans', sans-serif;
       font-size: clamp(0.8rem, 1.8vw, 1.1rem);
-      font-weight: 500;
-      color: var(--sage-dark);
+      font-weight: 600;
+      color: var(--gold);
       letter-spacing: 0.4em;
       text-transform: uppercase;
       margin-bottom: 1.5rem;
@@ -260,10 +261,10 @@
 
     .brand-tagline {
       font-size: 0.85rem;
-      color: var(--warm-gray);
+      color: var(--charcoal-soft);
       letter-spacing: 0.25em;
       text-transform: uppercase;
-      font-weight: 400;
+      font-weight: 600;
       position: relative;
       z-index: 1;
     }
@@ -914,9 +915,12 @@
       .service-card { padding: 28px 24px; }
       .pb-links { gap: 4px; }
       .pb-link { padding: 8px 14px; font-size: 0.78rem; }
-      .star-container { width: 200px; height: 200px; }
-      .northern-star { width: 92px; height: 92px; }
-      .star-halo { width: 140px; height: 140px; }
+      .star-container { width: 220px; height: 220px; }
+      .northern-star { width: 102px; height: 102px; }
+      .star-halo { width: 155px; height: 155px; }
+      .star-orbit { width: 180px; height: 180px; }
+      .brand-title { font-size: clamp(2.6rem, 11vw, 3.6rem); letter-spacing: 0.08em; }
+      .brand-subtitle { font-size: 0.85rem; letter-spacing: 0.28em; }
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -945,28 +949,28 @@
       <svg class="northern-star" viewBox="0 0 100 100" fill="none">
         <defs>
           <linearGradient id="starGold" x1="0" y1="0" x2="1" y2="1">
-            <stop offset="0%" stop-color="#F6CD7C"/>
-            <stop offset="50%" stop-color="#E8B54A"/>
-            <stop offset="100%" stop-color="#D4A017"/>
+            <stop offset="0%" stop-color="#E8B54A"/>
+            <stop offset="50%" stop-color="#C79A1B"/>
+            <stop offset="100%" stop-color="#A8790E"/>
           </linearGradient>
           <radialGradient id="starCore" cx="40%" cy="35%" r="70%">
-            <stop offset="0%" stop-color="#FFF6DF"/>
-            <stop offset="55%" stop-color="#F6CD7C"/>
-            <stop offset="100%" stop-color="#E8B54A"/>
+            <stop offset="0%" stop-color="#FFE9A8"/>
+            <stop offset="55%" stop-color="#E8B54A"/>
+            <stop offset="100%" stop-color="#C0840F"/>
           </radialGradient>
           <filter id="starSoft" x="-40%" y="-40%" width="180%" height="180%">
             <feGaussianBlur stdDeviation="1.2"/>
           </filter>
         </defs>
-        <path d="M50 2 L53 38 L62 42 L55 45 L58 55 L50 50 L42 55 L45 45 L38 42 L47 38 Z" fill="url(#starGold)" stroke="#B8860B" stroke-width="1.4" stroke-linejoin="round"/>
+        <path d="M50 2 L53 38 L62 42 L55 45 L58 55 L50 50 L42 55 L45 45 L38 42 L47 38 Z" fill="url(#starGold)" stroke="#8A5B00" stroke-width="1.8" stroke-linejoin="round"/>
         <path d="M50 15 L52 35 L58 38 L52 41 L54 48 L50 45 L46 48 L48 41 L42 38 L48 35 Z" fill="url(#starCore)" opacity="0.95"/>
         <circle cx="50" cy="50" r="6" fill="#FFFBEF"/>
-        <circle cx="50" cy="50" r="3" fill="#E8B54A"/>
-        <path d="M50 6 L50 94" stroke="url(#starGold)" stroke-width="1" opacity="0.5" filter="url(#starSoft)"/>
-        <path d="M6 50 L94 50" stroke="url(#starGold)" stroke-width="1" opacity="0.5" filter="url(#starSoft)"/>
-        <path d="M18 18 L82 82" stroke="url(#starGold)" stroke-width="0.8" opacity="0.35" filter="url(#starSoft)"/>
-        <path d="M82 18 L18 82" stroke="url(#starGold)" stroke-width="0.8" opacity="0.35" filter="url(#starSoft)"/>
-        <circle cx="50" cy="50" r="14" fill="url(#starGold)" opacity="0.14" filter="url(#starSoft)"/>
+        <circle cx="50" cy="50" r="3" fill="#B8860B"/>
+        <path d="M50 6 L50 94" stroke="url(#starGold)" stroke-width="1.2" opacity="0.55" filter="url(#starSoft)"/>
+        <path d="M6 50 L94 50" stroke="url(#starGold)" stroke-width="1.2" opacity="0.55" filter="url(#starSoft)"/>
+        <path d="M18 18 L82 82" stroke="url(#starGold)" stroke-width="1" opacity="0.4" filter="url(#starSoft)"/>
+        <path d="M82 18 L18 82" stroke="url(#starGold)" stroke-width="1" opacity="0.4" filter="url(#starSoft)"/>
+        <circle cx="50" cy="50" r="16" fill="url(#starGold)" opacity="0.16" filter="url(#starSoft)"/>
       </svg>
     </div>
 
